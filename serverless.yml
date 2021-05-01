@@ -15,5 +15,5 @@ functions:
 
     events:
       - http:
-          path: hello
+          path: hello/{name}
           method: get
