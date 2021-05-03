@@ -7,18 +7,19 @@ on:
 
 jobs:
   build:
-    name: Greeting
+    name: Unit test
     runs-on: ubuntu-latest
     steps:
-      - name: Hello world
-        uses: actions/hello-world-javascript-action@v1
-  
-      - name: build node modules
-        run: npm install
+    - uses: actions/checkout@v2
+    - name: npm install
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    - run: npm install
+    - name: Unit test
+      run: npm run test
       
-      - name: Unit test
-        run: npm run test
-
+            
 #   deploy:
 #     name: Deploy to AWS lambda
 #     runs-on: ubuntu-latest
