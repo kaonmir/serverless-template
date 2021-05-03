@@ -1,0 +1,34 @@
+name: AWS lambda unit test
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Greeting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        uses: actions/hello-world-javascript-action@v1
+  
+      - name: build node modules
+        run: npm install
+      
+      - name: Unit test
+        run: npm run test
+
+#   deploy:
+#     name: Deploy to AWS lambda
+#     runs-on: ubuntu-latest
+#     # needs: [ build ]
+#     steps:
+#       - name: install serverless globally
+#         run: npm install -g serverless
+            
+#       - name: connect to AWS lambda
+#         run: serverless config credentials -o --provider aws --key ${{secrets.AWS_CREDENTIAL_KEY}} --secret ${{secrets.AWS_CREDENTIAL_SECRET}}
+        
+
+        
