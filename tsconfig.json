@@ -15,11 +15,6 @@
       "preserveConstEnums": true,
       "suppressImplicitAnyIndexErrors": true,
       "forceConsistentCasingInFileNames": true,
-
-      // For transfiling ts to js
-      "declaration": true,
-      "emitDeclarationOnly": true,
-      "isolatedModules": true // is this file safe for transfiling
     },
     "exclude": ["node_modules", "build", "webpack"],
     "types": ["typePatches"]

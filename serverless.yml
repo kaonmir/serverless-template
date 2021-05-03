@@ -8,7 +8,8 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: ap-northeast-2
-
+  lambdaHashingVersion: "20201221"
+  
 functions:
   hello:
     handler: src/handler.hello
