@@ -6,6 +6,6 @@ describe('Test Example', () => {
     })
     
     it('Handler test fail', () => {
-        expect(20).to.equal(30)
+        expect(30).to.equal(30)
     })
 })

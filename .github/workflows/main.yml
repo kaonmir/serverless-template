@@ -29,10 +29,6 @@ jobs:
     #   if: success()
     #   run: echo "I success the code!"
 
-    # - name: echo if fail
-    #   if: failure()
-    #   run: echo "I fail the code!"
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
