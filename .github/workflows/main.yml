@@ -1,6 +1,6 @@
 name: AWS lambda unit test
 on: 
-  run: 
+  push: 
     branches: [ develop ]
   pull_request:
     branches: [ master, develop ]
