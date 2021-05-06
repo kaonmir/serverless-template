@@ -43,9 +43,9 @@ jobs:
       - name: install serverless globally
         run: npm install -g serverless
             
-      # - name: connect to AWS lambda
-      #   run: serverless config credentials -o --provider aws --key ${{secrets.AWS_CREDENTIAL_KEY}} --secret ${{secrets.AWS_CREDENTIAL_SECRET}}
+      - name: connect to AWS lambda
+        run: serverless config credentials -o --provider aws --key ${{secrets.AWS_CREDENTIAL_KEY}} --secret ${{secrets.AWS_CREDENTIAL_SECRET}}
 
-      # - name: deploy to AWS lambda
-      #   run: serverless deploy
+      - name: deploy to AWS lambda
+        run: serverless deploy
         
