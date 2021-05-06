@@ -39,7 +39,18 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache-
 
+      - name: install dependencies
+        run: npm install
+        
       - name: install serverless globally
         run: npm install -g serverless
             
@@ -47,8 +58,5 @@ jobs:
         run: serverless config credentials -o --provider aws --key ${{secrets.AWS_CREDENTIAL_KEY}} --secret ${{secrets.AWS_CREDENTIAL_SECRET}}
 
       - name: deploy to AWS lambda
-        run: |
-          npm i serverless-offline
-          npm i serverless-plugin-typescript    
-          serverless deploy
+        run: serverless deploy
         
