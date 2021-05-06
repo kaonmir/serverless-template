@@ -29,6 +29,13 @@ jobs:
       if: failure()
       run: echo "I fail the code!"
 
+  deploy:
+    runs-on: ubuntu-latest
+    if: success()
+    steps: 
+    - name: echo deploy is running
+    - run: echo "deploy is running"
+
 #   deploy:
 #     name: Deploy to AWS lambda
 #     runs-on: ubuntu-latest
