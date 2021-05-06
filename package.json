@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "yarn mocha src/test/*.ts -r ts-node/register",
-    "offline": "serverless offline",
-    "deploy_to_aws": "serverless deploy"
+    "offline": "serverless offline"
   },
   "author": "",
   "license": "ISC",
