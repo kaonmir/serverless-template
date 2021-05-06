@@ -34,7 +34,7 @@ jobs:
     if: success()
     steps: 
     - name: echo deploy is running
-    - run: echo "deploy is running"
+      run: echo "deploy is running"
 
 #   deploy:
 #     name: Deploy to AWS lambda
