@@ -1,5 +1,7 @@
 name: AWS lambda unit test
 on: 
+  run: 
+    branches: [ develop ]
   pull_request:
     branches: [ master, develop ]
 
@@ -9,20 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
     - name: npm install
       uses: actions/setup-node@v1
       with:
         node-version: '12'
     - run: npm install
+
     - name: Unit test
       run: npm run test
     
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
-      if: always()
-      with:
-        files: test-results/**/*.xml
-
+    - name: echo if success
+      if: success()
+      run: echo "I success the code!"
 #   deploy:
 #     name: Deploy to AWS lambda
 #     runs-on: ubuntu-latest
