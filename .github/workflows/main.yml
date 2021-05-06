@@ -30,6 +30,7 @@ jobs:
       run: echo "I fail the code!"
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     if: success()
     steps: 
