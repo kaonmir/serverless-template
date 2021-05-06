@@ -38,6 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     if: success()
     steps: 
+      - run: echo "deploy is running"
     # - name: install serverless globally
     #   run: npm install -g serverless
           
