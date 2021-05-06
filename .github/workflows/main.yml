@@ -47,5 +47,8 @@ jobs:
         run: serverless config credentials -o --provider aws --key ${{secrets.AWS_CREDENTIAL_KEY}} --secret ${{secrets.AWS_CREDENTIAL_SECRET}}
 
       - name: deploy to AWS lambda
-        run: serverless deploy
+        run: |
+          npm i serverless-offline
+          npm i serverless-plugin-typescript    
+          serverless deploy
         
