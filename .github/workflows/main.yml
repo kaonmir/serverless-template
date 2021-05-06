@@ -12,30 +12,32 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: npm install
-      uses: actions/setup-node@v1
+    - name: Cache NPM dependencies
+      uses: actions/cache@v1
       with:
-        node-version: '12'
+        path: ~/.npm
+        key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-npm-cache-
+
     - run: npm install
 
     - name: Unit test
       run: npm run test
     
-    - name: echo if success
-      if: success()
-      run: echo "I success the code!"
+    # - name: echo if success
+    #   if: success()
+    #   run: echo "I success the code!"
 
-    - name: echo if fail
-      if: failure()
-      run: echo "I fail the code!"
+    # - name: echo if fail
+    #   if: failure()
+    #   run: echo "I fail the code!"
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: failure()
+    if: success()
     steps: 
-      - name: is it fail?
-        run: echo "It's failure"
     # - name: install serverless globally
     #   run: npm install -g serverless
           
