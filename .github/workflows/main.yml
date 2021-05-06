@@ -44,7 +44,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-npm-cache-
 
-      - run: npm ci
+      - run: npm install
 
       - name: connect to AWS lambda
         uses: serverless/github-action@master
